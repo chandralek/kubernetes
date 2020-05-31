@@ -16,5 +16,5 @@ spec:
         tier: centos
     spec:
       containers:
-        - name: centos
-          image: centos:7
+        - name: httpd
+          image: chandralekhas/replica-demo:v2
