@@ -7,5 +7,5 @@ spec:
     - name: centos
       image: centos:7
       command:
-        - sleep
+        - "sleep"
         - "10"
