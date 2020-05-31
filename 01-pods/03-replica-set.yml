@@ -17,4 +17,4 @@ spec:
     spec:
       containers:
         - name: httpd
-          image: chandralekhas/replica-demo:v1
+          image: chandralekhas/replica-demo:v2
