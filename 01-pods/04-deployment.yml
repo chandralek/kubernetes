@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: https-rs
+  labels:
+    tier: https
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: https
+  template:
+    metadata:
+      labels:
+        tier: https
+    spec:
+      containers:
+        - name: httpd
+          image: chandralekhas/replica-demo:v2
