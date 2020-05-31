@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: centos
+  name: https-rs
   labels:
     tier: https
 spec:
