@@ -1,3 +1,4 @@
+---
 kind: Pod
 apiVersion: v1
 metadata:
@@ -15,3 +16,15 @@ spec:
       env:
         - name: MONGO_DB
           value: mongo
+        - name: MONGODB_USR
+          valueFrom:
+            configMapKeyRef:
+              key: MONGODB_USR
+              name: MONGODB_USR
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: MONGODB_USR
+data:
+  MONGODB_USR: root
