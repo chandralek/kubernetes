@@ -29,6 +29,10 @@ spec:
       labels:
         app: mongodb
     spec:
+      volumes:
+        - name: mongodb-database
+          persistentVolumeClaim:
+            claimName: mongodb-database
       containers:
         - name: mongodb
           image: mongodb
@@ -37,7 +41,4 @@ spec:
           volumeMounts:
             - mountPath: "/data/db"
               name: mongodb-database
-      volumes:
-        - name: mongodb-database
-          persistentVolumeClaim:
-            claimName: mongodb-database
+
