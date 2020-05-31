@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: centos
+  name: https-rs
   labels:
-    tier: centos
+    tier: https
 spec:
   # modify replicas according to your case
   replicas: 3
   selector:
     matchLabels:
-      tier: centos
+      tier: https
   template:
     metadata:
       labels:
-        tier: centos
+        tier: https
     spec:
       containers:
         - name: httpd
-          image: chandralekhas/replica-demo:v2
+          image: chandralekhas/replica-demo:v1
