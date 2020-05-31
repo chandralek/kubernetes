@@ -10,8 +10,7 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  storageClassName: gp2
-
+  storageClassName: aws-xfs
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -34,11 +33,10 @@ spec:
           persistentVolumeClaim:
             claimName: mongodb-database
       containers:
-        - name: mongodb
-          image: mongodb
+        - name: mongo
+          image: mongo
           ports:
             - containerPort: 27017
           volumeMounts:
             - mountPath: "/data/db"
               name: mongodb-database
-
