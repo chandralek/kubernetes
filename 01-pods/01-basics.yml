@@ -8,4 +8,5 @@ spec:
       image: centos:7
       command:
         - "sleep"
-        - "10"
+        - "1000"
+## Number in Kubernetes should be quoted
