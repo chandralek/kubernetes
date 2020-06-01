@@ -40,3 +40,30 @@ spec:
           volumeMounts:
             - mountPath: "/data/db"
               name: mongodb-database
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+spec:
+  selector:
+    app: mongodb
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017
+
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pi
+spec:
+  template:
+    spec:
+      containers:
+        - name: pi
+          image: perl
+      restartPolicy: Never
+  backoffLimit: 4
+
