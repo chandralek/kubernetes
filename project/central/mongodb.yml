@@ -69,4 +69,3 @@ spec:
               value: mongodb
       restartPolicy: Never
   backoffLimit: 4
-
