@@ -10,7 +10,7 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  storageClassName: gp2
+  storageClassName: aws-xfs
 
 ---
 kind: ConfigMap
@@ -37,9 +37,15 @@ spec:
       labels:
         app: mysql
     spec:
+      initContainers:
+        - name: init-myservice
+          image: busybox:1.28
+          command: ['sh','-c','rm -rf /var/lib/mysql/lost-found']
       containers:
         - name: mysql
-          image: mysql
+          image: mysql:5.7
+          ports:
+            - containerPort: 3306
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
