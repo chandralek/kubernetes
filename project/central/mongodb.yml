@@ -57,13 +57,16 @@ spec:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: pi
+  name: mongodb-schema
 spec:
   template:
     spec:
       containers:
-        - name: pi
-          image: perl
+        - name: mongodb-schema
+          image: chandralekhas/01-httpd:v1
+          env:
+            - name: MONGO_DB_URL
+              value: mongodb
       restartPolicy: Never
   backoffLimit: 4
 
