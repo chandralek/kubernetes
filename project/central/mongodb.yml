@@ -63,7 +63,7 @@ spec:
     spec:
       containers:
         - name: mongodb-schema
-          image: chandralekhas/01-httpd:v1
+          image: chandralekhas/01-httpd:v2
           env:
             - name: MONGO_DB_URL
               value: mongodb
