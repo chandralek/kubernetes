@@ -78,7 +78,7 @@ spec:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: mysql-schema
+  name: mysql-schema-loader
 spec:
   template:
     spec:
@@ -87,12 +87,9 @@ spec:
           imagePullPolicy: Always
           image: chandralekhas/d46-mysql-schema:v1
           env:
-            - name: MYSQL_ROOT_PASSWORD
-              valueFrom:
-                configMapKeyRef:
-                  key: MYSQL_ROOT_PASSWORD
-                  name: mysql-root-pass
             - name: MYSQL_DB_URL
               value: mysql
+            - name: MYSQL_ROOT_PASSWORD
+              value: root
       restartPolicy: Never
-  backoffLimit: 4
+  backoffLimit: 2
