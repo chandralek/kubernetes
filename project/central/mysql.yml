@@ -85,7 +85,7 @@ spec:
       containers:
         - name: schema
           imagePullPolicy: Always
-          image: chandralekhas/d46-mysql-schema:v2
+          image: chandralekhas/d46-mysql-schema:v3
           env:
             - name: MYSQL_DB_URL
               value: mysql
