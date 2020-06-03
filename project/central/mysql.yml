@@ -18,7 +18,7 @@ apiVersion: v1
 metadata:
   name: mysql-root-pass
 data:
-  MYSQL-ROOT-PASSWORD: root
+  MYSQL_ROOT_PASSWORD: root
 
 ---
 apiVersion: apps/v1
@@ -38,9 +38,9 @@ spec:
         app: mysql
     spec:
       initContainers:
-        - name: init-myservice
-          image: busybox:1.28
-          command: ['sh','-c','rm -rf /var/lib/mysql/lost-found']
+        - name: cleaner
+          image: centos:7
+          command: ['sh', '-c', "sleep 30; rm -rf /var/lib/mysql/lost-found"]
       containers:
         - name: mysql
           image: mysql:5.7
@@ -50,8 +50,8 @@ spec:
             - name: MYSQL-ROOT-PASSWORD
               valueFrom:
                 configMapKeyRef:
-                  key: mysql-root-pass
-                  name: MYSQL-ROOT-PASSWORD
+                  key: MYSQL_ROOT_PASSWORD
+                  name: mysql-root-pass
           volumeMounts:
             - mountPath: "/var/lib/mysql"
               name: mysql-database
@@ -83,13 +83,14 @@ spec:
   template:
     spec:
       containers:
-        - name: mysql-schema
+        - name: schema
+          imagePullPolicy: Always
           image: chandralekhas/d46-mysql-schema:v1
           env:
-            - name: MYSQL-ROOT-PASSWORD
+            - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 configMapKeyRef:
-                  key: MYSQL-ROOT-PASSWORD
+                  key: MYSQL_ROOT_PASSWORD
                   name: mysql-root-pass
             - name: MYSQL_DB_URL
               value: mysql
