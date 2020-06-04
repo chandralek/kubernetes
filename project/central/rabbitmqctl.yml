@@ -18,6 +18,13 @@ spec:
       containers:
         - name: rabbitmq
           image: rabbitmq
+          command:
+            - "sh"
+            - "-c"
+          args:
+            - rabbitmqctl add_user roboshop roboshop123
+            - rabbitmqctl set_user_tags roboshop administrator
+            - rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
           ports:
             - containerPort: 5672
 ---
