@@ -22,7 +22,7 @@ spec:
             - "/bin/sh"
             - "-c"
           args:
-            - echo hello
+            - rabbitmqctl
           ports:
             - containerPort: 5672
 ---
