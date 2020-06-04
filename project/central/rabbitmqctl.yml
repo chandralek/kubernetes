@@ -22,7 +22,7 @@ spec:
             - "/bin/sh"
             - "-c"
           args:
-            - rabbitmqctl
+            - "rabbitmqctl add_user roboshop roboshop123"
           ports:
             - containerPort: 5672
 ---
