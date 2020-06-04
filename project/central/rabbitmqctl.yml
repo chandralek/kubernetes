@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: rabbitmq
-          image: chandralekhas/d46-rabbitmq:v2
+          image: rabbitmq
           ports:
             - containerPort: 5672
 ---
