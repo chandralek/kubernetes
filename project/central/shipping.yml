@@ -18,6 +18,7 @@ spec:
       containers:
         - name: shipping
           image: chandralekhas/d46-shipping:v1
+          imagePullPolicy: Always
           env:
             - name: DB_HOST
               value: mysql
