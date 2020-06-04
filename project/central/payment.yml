@@ -41,5 +41,5 @@ spec:
     app: payment
   ports:
     - protocol: TCP
-      port: 7001
-      targetPort: 7001
+      port: 7002
+      targetPort: 7002
