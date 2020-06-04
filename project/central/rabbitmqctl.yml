@@ -21,6 +21,8 @@ spec:
           command:
             - "/bin/sh"
             - "-c"
+          args:
+            - echo hello
           ports:
             - containerPort: 5672
 ---
