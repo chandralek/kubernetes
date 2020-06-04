@@ -22,7 +22,7 @@ spec:
             - "/bin/sh"
             - "-c"
           args:
-            - sleep 120
+            - echo hello
           ports:
             - containerPort: 5672
 ---
