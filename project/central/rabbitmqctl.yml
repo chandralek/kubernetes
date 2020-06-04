@@ -22,7 +22,8 @@ spec:
             - "/bin/sh"
             - "-c"
           args:
-            - echo hello
+            - "rabbitmqctl add_user roboshop roboshop123"
+            - "rabbitmqctl set_user_tags roboshop administrator"
           ports:
             - containerPort: 5672
 ---
