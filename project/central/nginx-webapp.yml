@@ -1,0 +1,48 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: chandralekhas/d46-nginx:v1
+          env:
+            - name: CATALOGUE
+              value: catalogue
+            - name: CART
+              value: cart
+            - name: SHIPPING
+              value: shipping
+            - name: PAYMENT
+              value: payment
+            - name: RATINGS
+              value: ratings
+            - name: USER
+              value: user
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
