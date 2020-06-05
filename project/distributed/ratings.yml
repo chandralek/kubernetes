@@ -1,0 +1,44 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ratings
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ratings
+  labels:
+    app: ratings
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ratings
+  template:
+    metadata:
+      labels:
+        app: ratings
+    spec:
+      containers:
+        - name: ratings
+          image: chandralekhas/d46-ratings:v1
+          env:
+            - name: PDO_URL
+              value: mysql:host=mysql;dbname=ratings;charset=utf8mb4
+            - name: CATALOGUE_URL
+              value: http://catalogue:7001/
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ratings
+spec:
+  selector:
+    app: ratings
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
