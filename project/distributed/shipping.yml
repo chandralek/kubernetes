@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: redis
+  name: shipping
 ---
 apiVersion: apps/v1
 kind: Deployment
