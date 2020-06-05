@@ -93,7 +93,7 @@ spec:
           image: chandralekhas/d46-mysql-schema:v5
           env:
             - name: MYSQL_DB_URL
-              value: mysql.mysql.svc.cluster.local
+              value: mysql
             - name: MYSQL_ROOT_PASSWORD
               value: root
       restartPolicy: Never
