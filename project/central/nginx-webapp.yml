@@ -18,7 +18,7 @@ spec:
       containers:
         - name: nginx
           image: chandralekhas/d46-nginx:v1
-          imagePullPolicy: Never
+          imagePullPolicy: Always
           env:
             - name: CATALOGUE
               value: catalogue
