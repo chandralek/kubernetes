@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: chandralekhas/d46-nginx:v1
+          image: chandralekhas/d46-nginx:v2
           imagePullPolicy: Always
           env:
             - name: CATALOGUE
