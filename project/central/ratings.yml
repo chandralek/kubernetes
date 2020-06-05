@@ -22,7 +22,7 @@ spec:
             - name: PDO_URL
               value: mysql:host=mysql;dbname=ratings;charset=utf8mb4
             - name: CATALOGUE_URL
-              value: catalogue
+              value: http://catalogue:7001/
           ports:
             - containerPort: 80
 ---
