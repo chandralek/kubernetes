@@ -18,6 +18,11 @@ spec:
       containers:
         - name: rabbitmq
           image: rabbitmq
+          command:
+            - "sh"
+            - "-c"
+          args:
+            - rabbitmqctl set_password
           ports:
             - containerPort: 5672
 ---
