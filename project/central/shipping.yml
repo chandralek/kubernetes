@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: shipping
-          image: chandralekhas/d46-shipping:v1
+          image: chandralekhas/d46-shipping:v2
           imagePullPolicy: Always
           env:
             - name: DB_HOST
