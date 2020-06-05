@@ -26,9 +26,9 @@ spec:
           imagePullPolicy: Always
           env:
             - name: REDIS_HOST
-              value: redis
+              value: redis.redis.svc.cluster.local
             - name: MONGO_URL
-              value: mongodb://mongodb:27017/users
+              value: mongodb://mongodb.mongodb.svc.cluster.local:27017/users
           ports:
             - containerPort: 7007
 ---

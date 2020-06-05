@@ -25,5 +25,5 @@ spec:
           image: chandralekhas/d46-dispatch:v1
           env:
             - name: RABBITMQ_HOST
-              value: dispatch
+              value: rabbitmq.rabbitmq.svc.cluster.local
 

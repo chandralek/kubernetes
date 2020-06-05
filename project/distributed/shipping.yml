@@ -26,9 +26,9 @@ spec:
           imagePullPolicy: Always
           env:
             - name: DB_HOST
-              value: mysql
+              value: mysql.mysql.svc.cluster.local
             - name: CART_ENDPOINT
-              value: cart
+              value: cart.cart.svc.cluster.local
           ports:
             - containerPort: 7005
 ---

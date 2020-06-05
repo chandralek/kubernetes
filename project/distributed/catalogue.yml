@@ -25,7 +25,7 @@ spec:
           image: chandralekhas/d46-catalogue:v1
           env:
             - name: MONGO_URL
-              value: mongodb://mongodb:27017/catalogue
+              value: mongodb://mongodb.mongodb.svc.cluster.local:27017/catalogue
           ports:
             - containerPort: 7001
 ---

@@ -26,17 +26,17 @@ spec:
           imagePullPolicy: Always
           env:
             - name: CATALOGUE
-              value: catalogue
+              value: catalogue.catalogue.svc.cluster.local
             - name: CART
-              value: cart
+              value: cart.cart.svc.cluster.local
             - name: SHIPPING
-              value: shipping
+              value: shipping.shipping.svc.cluster.local
             - name: PAYMENT
-              value: payment
+              value: payment.payment.svc.cluster.local
             - name: RATINGS
-              value: ratings
+              value: ratings.ratings.svc.cluster.local
             - name: USER
-              value: user
+              value: user.user.svc.cluster.local
           ports:
             - containerPort: 80
 ---

@@ -25,11 +25,11 @@ spec:
           image: chandralekhas/d46-payment:v1
           env:
             - name: RABBITMQ_HOST
-              value: rabbitmq
+              value: rabbitmq.rabbitmq.svc.cluster.local
             - name: CART_HOST
-              value: cart
+              value: cart.cart.svc.cluster.local
             - name: USER_HOST
-              value: user
+              value: user.user.svc.cluster.local
             - name: RUSERNAME
               value: roboshop
             - name: RPASSWORD

@@ -25,9 +25,9 @@ spec:
           image: chandralekhas/d46-cart:v1
           env:
             - name: REDIS_HOST
-              value: redis
+              value: redis.redis.svc.cluster.local
             - name: CATALOGUE_HOST
-              value: catalogue
+              value: catalogue.catalogue.svc.cluster.local
           ports:
             - containerPort: 7000
 ---
